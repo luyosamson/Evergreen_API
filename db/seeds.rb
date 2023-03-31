@@ -43,15 +43,13 @@ plant_type=[
 
  
 
-require 'faker'
-
 20.times do
     Flower.create(
-        Faker::Name.name,
+        name: Faker::Name.name,
         price: rand(1500..3900),
-        image:flower_image.sample,
-        Faker::Markdown.description,
-        type.flower_type.sample
+        image: flower_image.sample,
+        description: Faker::Markdown.emphasis,
+        flower_type: flower_type.sample
 
     )
 
@@ -60,11 +58,14 @@ end
 25.times do
     Plant.create(
 
-        Faker::Name.name,
+        name: Faker::Name.name,
         price: rand(1100..3500),
-        image:plant_image.sample,
-        Faker::Markdown.description,
-        type.flower_type.sample
+        image: flower_image.sample,
+        description: Faker::Markdown.emphasis,
+        plant_type: plant_type.sample
 
     )
 end
+
+
+
