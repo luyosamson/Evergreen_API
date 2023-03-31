@@ -10,7 +10,9 @@ class FlowersController < ApplicationController
         flower=Flower.find_by(id:params[:id])
 
         if flower
+
          render json:flower
+         
         else
             render json:{error:"Flower not found"}, status: :not_found
         end
