@@ -2,7 +2,7 @@ class PlantsController < ApplicationController
 
     def index
 
-    plant=Plants.all
+    plant=Plant.all
     render json:plant
 
     end
