@@ -1,6 +1,7 @@
 class FlowersController < ApplicationController
 
     def index
+        
         flower=Flower.all
         render json:flower
 
@@ -12,7 +13,7 @@ class FlowersController < ApplicationController
         if flower
 
          render json:flower
-         
+
         else
             render json:{error:"Flower not found"}, status: :not_found
         end
