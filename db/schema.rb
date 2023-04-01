@@ -12,21 +12,25 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_31_160037) do
   create_table "flowers", force: :cascade do |t|
+    t.bigint "seller_id", null: false
     t.string "flower_type"
     t.string "name"
     t.float "price"
     t.string "image"
     t.string "description"
+    t.boolean "inStock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "plants", force: :cascade do |t|
+    t.bigint "seller_id", null: false
     t.string "plant_type"
     t.string "name"
     t.float "price"
     t.string "image"
     t.string "description"
+    t.boolean "inStock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
