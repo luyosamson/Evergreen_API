@@ -48,46 +48,46 @@ plant_type=[
 
 puts "Seeding sellers..."
 
-seller=[]
+user=[]
 
-seller1=Seller.create!(
+user1=User.create!(
     name:"Samson Omondi",
     username:"Luyosamson",
     password:"Luyo1980",
     email:"luyosamson@gmail.com",
-    store_name:"Green Life"
+    
 )
-seller<<seller1
+user<<user1
 
-seller2=Seller.create!(
+user2=User.create!(
     name:"Victor Omondi",
     username:"Victor_omos",
     password:"Victor1980",
     email:"Victor@gmail.com.com",
-    store_name:"Red Carpet Flowers"
+   
 )
 
-seller<<seller2
+user<<user2
 
-seller3=Seller.create!(
+user3=User.create!(
     name:"Mary Jane",
     username:"Mary_J",
     password:"Mary001",
     email:"mary@gmail.com",
-    store_name:"Blue Moon Enterprise"
+   
 )
 
-seller<<seller3
+user<<user3
 
-seller4=Seller.create!(
+user4=User.create!(
     name:"Luyo Omondi",
     username:"Luyo001",
     password:"Luyo123",
     email:"luyo@gmail.com",
-    store_name:"Millenium Greens"
+    
 )
 
-seller<<seller4
+user<<user4
 
 20.times do
     Seller.create(
@@ -136,7 +136,7 @@ puts "Seeding Plants.."
 25.times do
     Plant.create(
         seller_id: Seller.all.sample.id,
-        name: Faker::Name.name
+        name: Faker::Name.name,
         price: rand(1100..3500),
         image: flower_image.sample,
         description: Faker::Markdown.emphasis,
@@ -148,40 +148,52 @@ end
 
 puts "Seeding into user profile"
 
-user=User.all.sample
+ 15.times do
+
+user = User.order("RANDOM()").limit(1).first
 
 Profile.create!(
-     user_id: user.all.id,
-     name: user.all.name,
-     email: user.all.email,
-     username: user.all.username,
+     user_id: user.id,
+     name: user.name,
+     email: user.email,
+     username: user.username,
      
 )
+end
 
 
 puts "Seeding seller profile"
 
-seller=Seller.all.sample
+ 7.times do
+
+seller = Seller.order("RANDOM()").limit(1).first
 
 Sellerprofile.create!(
-    seller_id: seller.all.id,
-    name: seller.all.name,
-    email: seller.all.email,
-    username: seller.all.username,
-    store_name: seller.all.store_name
+    seller_id: seller.id,
+    name: seller.name,
+    email: seller.email,
+    username: seller.username,
+    store_name: seller.store_name
 
 
 )
 
+end
+
+# puts "Seeding Orders"
+# flower = Flower.order("RANDOM()").limit(1).first
+# if flower.nil?
+#   puts "Error: Flower object is missing!"
+# else
+# quantity1=2
+# quantity3=3
+# quantity6=10
+# order1=Order.create!(user_id:user2.id,flower_id:flower.id,quantity:quantity1,price:flower.price*quantity1)
+# order2=Order.create!(user_id:user4.id,flower_id:flower.id,quantity:quantity3,price:flower.price*quantity3)
+# order3=Order.create!(user_id:user1.id,flower_id:flower.id,quantity:quantity6,price:flower.price*quantity6)
 
 
-
-
-
-#Seeding Order
-
-
-
+# end
 
 
 
