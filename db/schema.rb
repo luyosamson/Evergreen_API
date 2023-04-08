@@ -26,8 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_07_112202) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "flower_id", null: false
-    t.integer "plant_id", null: false
+    t.integer "flower_id"
+    t.integer "plant_id"
     t.integer "quantity"
     t.float "price"
     t.datetime "created_at", null: false
