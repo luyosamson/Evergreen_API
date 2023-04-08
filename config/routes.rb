@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   # get 'flowers', to: 'flowers#index'
   resources :plants
   resources :flowers
+  resources :sellers, only: [:index,:show]
+  resources :users,only: [:index,:show]
+  resources :profiles, only: [:index,:show]
+  resources :sellerprofiles, only: [:index,:show]
  
 
   
