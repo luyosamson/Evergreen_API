@@ -1,3 +1,6 @@
 class SellerSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id,:name,:email,:username,:store_name
 end
+
+
+  
