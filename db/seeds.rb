@@ -124,7 +124,7 @@ end
         price: rand(1500..3900),
         image: flower_image.sample,
         description: Faker::Markdown.emphasis,
-        flower_type: flower_type.sample,
+        product_type: flower_type.sample,
         inStock: true
 
     )
@@ -140,7 +140,7 @@ puts "Seeding Plants.."
         price: rand(1100..3500),
         image: flower_image.sample,
         description: Faker::Markdown.emphasis,
-        plant_type: plant_type.sample,
+        product_type: plant_type.sample,
         inStock: true
 
     )
