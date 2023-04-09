@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   resources :users,only: [:index,:show]
   resources :profiles, only: [:index,:show]
   resources :sellerprofiles, only: [:index,:show]
+
+  post '/login', to: 'session#create'
+  delete "/logout", to: "sessions#destroy"
+  get "/me", to: "users#showme"
+    
  
 
   
