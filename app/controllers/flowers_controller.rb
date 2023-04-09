@@ -1,5 +1,8 @@
 class FlowersController < ApplicationController
 
+
+    #Display all flowers in the database
+
     def index
         
         flower=Flower.all
@@ -7,6 +10,7 @@ class FlowersController < ApplicationController
 
     end
 
+    #Display a particular flower from the database
     def show
         flower=Flower.find_by(id:params[:id])
 
@@ -20,6 +24,8 @@ class FlowersController < ApplicationController
 
     end
 
+    #Post new product as a seller
+
     def create
         flower=Flower.create!(flower_params)
 
@@ -31,6 +37,7 @@ class FlowersController < ApplicationController
 
     end
 
+    #Delete the product as a seller
     def destroy
         flower=Flower.find_by(id:params[:id])
         if flower
@@ -39,6 +46,23 @@ class FlowersController < ApplicationController
         else
             render json:{error:"Flower not found"}, status: :not_found
         end
+
+
+    end
+
+    #Update the price of the product
+
+    def update
+        
+        flower=Flower.find_by(id: params[:id])
+        if flower
+            flower.update(price:params[:price])
+            render json:flower
+        else
+            render json:{error:"Flower not found"}, status: :not_found
+
+        end
+
 
 
     end
