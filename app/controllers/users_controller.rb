@@ -5,6 +5,14 @@ class UsersController < ApplicationController
         render json:user
     end
 
+    def create
+
+        user=User.create(user_params)
+        session[:user_id]=user.id
+        render json:user, status: :created
+
+    end
+
     def show
         user=User.find_by(id: params[:id])
         if user
@@ -24,4 +32,17 @@ class UsersController < ApplicationController
             render json:{error:"Not Authorized"}, status: :unauthorized
         end
     end
+
+     # Auto-Login Feature
+    def show
+        render json:@current_user
+
+    end
+
+
+def user_params
+    params.require(:user).permit(:name,:username,:email,:password,:password_confirmation)
+
+end
+
 end
