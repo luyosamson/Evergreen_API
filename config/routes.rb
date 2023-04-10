@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index,:show]
   resources :sellerprofiles, only: [:index,:show]
 
-  post '/login', to: 'session#create'
+  post '/signup', to: 'users#create'
+  post '/login', to: 'sessions#create'
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#showme"
     
