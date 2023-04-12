@@ -5,6 +5,7 @@ class UsersController < ApplicationController
         render json:user
     end
 
+        #SignUp/Register Function
     def create
 
         user=User.create(user_params)
