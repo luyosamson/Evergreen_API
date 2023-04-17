@@ -93,7 +93,7 @@ user<<user4
     Seller.create(
         name: Faker::Name.name,
         username: Faker::Internet.username,
-        password: Faker::Internet.password,
+        password_digest: Faker::Internet.password,
         email: Faker::Internet.email,
         store_name: Faker::Company.name 
             
@@ -180,20 +180,6 @@ Sellerprofile.create!(
 
 end
 
-# puts "Seeding Orders"
-# flower = Flower.order("RANDOM()").limit(1).first
-# if flower.nil?
-#   puts "Error: Flower object is missing!"
-# else
-# quantity1=2
-# quantity3=3
-# quantity6=10
-# order1=Order.create!(user_id:user2.id,flower_id:flower.id,quantity:quantity1,price:flower.price*quantity1)
-# order2=Order.create!(user_id:user4.id,flower_id:flower.id,quantity:quantity3,price:flower.price*quantity3)
-# order3=Order.create!(user_id:user1.id,flower_id:flower.id,quantity:quantity6,price:flower.price*quantity6)
-
-
-# end
 
 
 
