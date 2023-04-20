@@ -13,11 +13,19 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index,:show]
   resources :sellerprofiles, only: [:index,:show]
 
-  post '/signup', to: 'users#create'
 
-  #Login and Logout Functions to be handled in the sessions
+  post '/signupseller', to: 'sellers#create'
+  post '/signup', to: 'users#create'
+   
+
+  #Login and Logout of User Functions to be handled in the sessions
   post '/login', to: 'sessions#create'
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#showme"
+
+  #Login and Logout of Seller to be handled in Session controller
+
+  post '/loginseller', to: 'sessions#createseller'
+  delete '/logoutseller', to: 'sessions#destroyseller'
      
 end
