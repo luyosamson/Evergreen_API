@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   #Login and Logout of Seller to be handled in Session controller
 
-  post '/loginseller', to: 'sessions#createseller'
-  delete '/logoutseller', to: 'sessions#destroyseller'
+  post '/loginseller', to: 'seller_sessions#create'
+  delete '/logout', to: 'seller_sessions#destroy'
      
 end
