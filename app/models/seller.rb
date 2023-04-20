@@ -1,4 +1,5 @@
 class Seller < ApplicationRecord
+    has_secure_password
     has_many :flowers
     has_many :plants
     has_one :sellerprofile
