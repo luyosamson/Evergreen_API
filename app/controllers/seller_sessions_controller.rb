@@ -17,5 +17,7 @@ class SellerSessionsController < ApplicationController
     def destroy
         session.delete :seller_id
         head :no_content
+
+
     end
 end

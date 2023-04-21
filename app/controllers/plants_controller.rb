@@ -21,16 +21,15 @@ class PlantsController < ApplicationController
 
       #Post new product as a seller
 
-    def create
-        plant=Plant.create!(plant_params)
-
-        if plant
-        render json:plant, status: :created
-        else
-            render json:{error:"Not authorize"},status: 401
-        end
-
-    end
+    # def create
+    #     seller = Seller.find_by(id: params[:id])
+    #     plant = seller.plants.create!(plants_params)
+    #   if plant
+    #     render json: plants, status: :created
+    #   else
+    #     render json: {error:"Not authorize"}, status: 401
+    #     end
+    # end
 
     #Delete the product as a seller
     def destroy
@@ -54,7 +53,7 @@ class PlantsController < ApplicationController
             plant.update(price:params[:price])
             render json:plant
         else
-            render json:{error:"Flower not found"}, status: :not_found
+            render json:{error:"Plant not found"}, status: :not_found
 
         end
 
@@ -66,7 +65,7 @@ class PlantsController < ApplicationController
 
     def plant_params
         # params.permit(:product_type,:name,:price,:image,:description)
-        params.require(:plant).permit(:name,:product_type,:description, :price,:seller_id)
+        params.require(:plant).permit(:name,:product_type,:description,:price,:image,:seller_id)
     end
 
 
