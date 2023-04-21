@@ -26,16 +26,28 @@ class FlowersController < ApplicationController
 
     #Post new product as a seller
 
+    # def create
+    #     flower=Flower.create!(flower_params)
+
+    #     if flower
+    #     render json:flower, status: :created
+    #     else
+    #         render json:{error:"Not authorize"},status: 401
+    #     end
+
+    # end
+
+
     def create
-        flower=Flower.create!(flower_params)
-
-        if flower
-        render json:flower, status: :created
-        else
-            render json:{error:"Not authorize"},status: 401
-        end
-
+  seller = Seller.find_by(id: params[:id])
+  flower = seller.flowers.create!(flower_params)
+  if flower
+    render json: flower, status: :created
+  else
+    render json: {error:"Not authorize"}, status: 401
+     end
     end
+
 
     #Delete the product as a seller
     def destroy
@@ -52,26 +64,54 @@ class FlowersController < ApplicationController
 
     #Update the price of the product
 
-    def update
+    # def update
         
-        flower=Flower.find_by(id: params[:id])
-        if flower
-            flower.update(price:params[:price])
-            render json:flower
-        else
-            render json:{error:"Flower not found"}, status: :not_found
+    #     flower=Flower.find_by(seller_id: params[:seller_id])
+    #     if flower
+    #         flower.update(price:params[:price])
+    #         render json:flower
+    #     else
+    #         render json:{error:"Flower not found"}, status: :not_found
 
-        end
+    #     end
 
 
 
-    end
+    # end
+
+#     def create
+#   @seller = Seller.find(params[:seller_id])
+#   if @seller
+#     @flower = @seller.flowers.build(flower_params)
+#     if @flower.save
+#       redirect_to @seller
+#     else
+#       render 'new'
+#     end
+#   else
+#     render plain: 'Seller not found'
+#   end
+# end
+
+
+def create
+  @seller = Seller.find(session[:seller_id])
+  @flower = @seller.flowers.build(flower_params)
+
+  if @flower.save
+    redirect_to @flower, notice: 'Flower was successfully created.'
+  else
+    render :new
+  end
+end
+
+
 
     private
 
     def flower_params
         # params.permit(:product_type,:name,:price,:image,:description)
-        params.require(:flower).permit(:name,:product_type,:description, :price,:seller_id)
+        params.require(:flower).permit(:name,:product_type,:description, :price,:image,:seller_id)
     end
 
 
