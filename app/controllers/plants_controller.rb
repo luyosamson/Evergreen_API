@@ -18,18 +18,23 @@ class PlantsController < ApplicationController
 
     end
 
+            #Posting a new Plant product
 
-      #Post new product as a seller
+    def create
+        seller = Seller.find_by(id: session[:seller_id])
+        if seller.nil?
+            render json: { error: "Not authorized" }, status: :unauthorized
+            return
+        end
 
-    # def create
-    #     seller = Seller.find_by(id: params[:id])
-    #     plant = seller.plants.create!(plants_params)
-    #   if plant
-    #     render json: plants, status: :created
-    #   else
-    #     render json: {error:"Not authorize"}, status: 401
-    #     end
-    # end
+        plant = seller.plants.create!(plant_params)
+        if plant
+            render json: plant, status: :created
+        else
+            render json: { error: "Failed to create plant" }, status: :unprocessable_entity
+        end
+    end
+
 
     #Delete the product as a seller
     def destroy

@@ -6,13 +6,21 @@ class UsersController < ApplicationController
     end
 
         # SignUp/Register Function
-    def create
+      def create
+    @user = User.new(user_params)
+    if @user.save
+      render json: @user, status: :created
+    else
+      error_message = if @user.errors[:email].include?("has already been taken")
+                        "Email already exists. Please use a different email..."
 
-        user=User.create(user_params)
-        session[:user_id]=user.id
-        render json:user, status: :created
-
+                      end
+      render json: { error: error_message }, status: :unprocessable_entity
     end
+  end
+
+
+
 
     def show
         
