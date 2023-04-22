@@ -54,7 +54,7 @@ class FlowersController < ApplicationController
 
     def update
         
-        flower=Flower.find_by(seller_id: params[:seller_id])
+        flower=Flower.find_by(id: params[:id])
         if flower
             flower.update(price:params[:price])
             render json:flower
