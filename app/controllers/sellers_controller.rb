@@ -35,14 +35,6 @@ class SellersController < ApplicationController
   end
 end
 
-
-
-
-
-
-  
-
-
     private
 
     def seller_params
