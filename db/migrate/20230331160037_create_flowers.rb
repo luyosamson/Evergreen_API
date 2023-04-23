@@ -6,7 +6,7 @@ class CreateFlowers < ActiveRecord::Migration[7.0]
       t.string :name
       t.float :price
       t.string :image
-      t.boolean :inStock
+      t.boolean :inStock, default: true
       t.string :description
       
       t.timestamps
