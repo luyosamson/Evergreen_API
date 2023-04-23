@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_07_112202) do
     t.string "name"
     t.float "price"
     t.string "image"
-    t.boolean "inStock"
+    t.boolean "inStock", default: true
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_07_112202) do
     t.float "price"
     t.string "image"
     t.string "description"
-    t.boolean "inStock"
+    t.boolean "inStock", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seller_id"], name: "index_plants_on_seller_id"
