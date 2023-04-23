@@ -1,5 +1,5 @@
 class SellerprofileSerializer < ActiveModel::Serializer
-  attributes :id,:seller_id,:name,:email,:username,:store_name
+  attributes :name,:email,:username,:store_name
   belongs_to :seller
 end
  
