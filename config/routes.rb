@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'featureds/name,price,image'
+ 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # get 'flowers', to: 'flowers#index'
   resources :plants
   resources :flowers
-  resources :featureds, only: [:index]
+
   resources :sellers, only: [:index,:show,:create]
   resources :users,only: [:index,:show,:create]
   resources :profiles, only: [:index,:show]
