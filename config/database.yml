@@ -24,9 +24,7 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  database: evergreen_production
-  username: evergreen
-  password: <%= ENV['EVERGREEN_DATABASE_PASSWORD'] %>
+
 
 
   
