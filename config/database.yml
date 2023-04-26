@@ -56,7 +56,7 @@ x-local_database: &x-local-database
 
 development:
   <<: *default
-  database: postgres
+  database: luyoh
   <<: *x-local-database
 
 # Warning: The database defined as "test" will be erased and
