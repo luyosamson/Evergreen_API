@@ -6,8 +6,9 @@ class CreatePlants < ActiveRecord::Migration[7.0]
       t.string :name
       t.float :price
       t.string :image
-      t.string :description
       t.boolean :inStock, default: true
+      t.string :description
+
       t.timestamps
     end
   end
