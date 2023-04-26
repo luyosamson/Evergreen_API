@@ -61,7 +61,7 @@ x-local_database: &x-local-database
 
 development:
   <<: *default
-  database: evergreen_development
+  database: postgres
   <<: *x-local-database
 
 # Warning: The database defined as "test" will be erased and
