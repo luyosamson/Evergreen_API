@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index,:show]
   resources :sellerprofiles, only: [:index,:show]
 
-
+root to: 'plants#index'
 
   post '/signupseller', to: 'sellers#create'
   post '/signup', to: 'users#create'
