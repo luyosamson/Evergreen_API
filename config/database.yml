@@ -49,7 +49,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 x-local_database: &x-local-database
-  username: postgres
+  username: luyoh
   password: postgres
   host: localhost
   port: 5432
