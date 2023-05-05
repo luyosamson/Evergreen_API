@@ -86,8 +86,6 @@ class FlowersController < ApplicationController
     def flower_params
         # params.permit(:product_type,:name,:price,:image,:description)
         params.require(:flower).permit(:name,:product_type,:description, :price,:image,:seller_id)
-    end
-
-
-  
+    end 
 end
+# postgres://blossoms_owox_user:gOc6nTR10y1pjPz7ADNCfQ0v5Fm5wZOd@dpg-ch9bondgk4qeoo44qflg-a.oregon-postgres.render.com/blossoms_owox
