@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :flowers
 
   resources :sellers, only: [:index,:show,:create]
+  resources :orders, only: [:index,:show]
   resources :users,only: [:index,:show,:create]
   resources :profiles, only: [:index,:show]
   resources :sellerprofiles, only: [:index,:show]
